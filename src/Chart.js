@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 import './Chart.css'
-import { Pie } from 'react-chartjs-2';
 import { ArcElement } from 'chart.js';
-import { Grid } from '@mui/material';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -115,57 +113,7 @@ const FetchApiWithMetrics = () => {
     ],
   }
 
-  const data = {
-    labels: responseTimes.map((_, index) => `${placeholder} MB`),
-    datasets: [
-      {
-        label: 'Response Time (ms)',
-        data: responseTimes,
-        backgroundColor: 'rgba(75, 192, 192, 0.6)',
-        borderColor: 'rgba(75, 192, 192, 1)',
-        borderWidth: 1,
-      },
-      {
-        label: 'Response Size (MB)',
-        data: responseSizes,
-        backgroundColor: 'rgba(153, 102, 255, 0.6)',
-        borderColor: 'rgba(153, 102, 255, 1)',
-        borderWidth: 1,
-      },
-    ],
-  };
-
-  const timeData = {
-    labels: responseTimes.map((_, index) => `Size MB`),
-    datasets: [
-      {
-        label: 'Response Size (MB)',
-        data: responseSizes,
-        backgroundColor: 'rgba(153, 102, 255, 0.6)',
-        borderColor: 'rgba(153, 102, 255, 1)',
-        borderWidth: 1,
-      },
-    ],
-  };
-
-  const timeOptions = {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'top',
-      },
-      title: {
-        display: true,
-        text: 'API Response Times',
-      },
-    },
-    scales: {
-      y: {
-        beginAtZero: true,
-      },
-    },
-  };
-
+  
   const options = {
     responsive: true,
     plugins: {
@@ -222,6 +170,10 @@ console.log(successRate)
   };
 
 //   pie ends here
+console.log(responseSizes)
+console.log(placeholder)
+console.log(successRatePieData)
+console.log(averageResponseTimePieData)
 
   return (
     <div className='container'>
