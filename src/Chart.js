@@ -195,7 +195,7 @@ console.log(averageResponseTimePieData)
       />
       <button onClick={handleFetch} className='button'>Fetch Data</button>
       <br />
-      <p>Original Delay Time : {comparisonDelayTime}</p>
+      <p>Original Delay Time : {comparisonDelayTime} ms</p>
       {makeApiRequest} 
       
       {responseTimes.length > 0 && <Bar data={comparisonData} options={options} />}
