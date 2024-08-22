@@ -1,0 +1,25 @@
+.container {
+    text-align: center;
+    background-color: #efefef;
+    margin-bottom: 50px;
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+
+.input {
+    width: 60%;
+    height: 40px;
+    padding-left: 10px;
+}
+
+.button {
+    background-color: rgb(0, 135, 0);
+    color: #fff;
+    height: 45px;
+    margin-left: 5px;
+}
+
+.mainText {
+    margin: 20px;
+    font-size: 20px;
+}
