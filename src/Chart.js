@@ -84,18 +84,25 @@ const FetchApiWithMetrics = () => {
   let placeholder = 0;
   let comparisonDataResponseTimes = null;
   let comparisonDataLabel = null;
+  let comparisonDelayTime = 0;
   if (url === "https://zinny.pythonanywhere.com/api/agendas") {
 
-    comparisonDataResponseTimes = ['500', '300', '200']
-    comparisonDataLabel = ['TTL 500 MB', 'LB 500 MB', 'FUSION 500 MB']
+    comparisonDataResponseTimes = ['698', '687', '661']
+    comparisonDataLabel = ['TTL 10 G', 'LB 10 G', 'FUSION 10 G']
+    comparisonDelayTime = 756
+
   } else if (url === "https://blogapiserver.pythonanywhere.com/api/posts") {
 
-    comparisonDataResponseTimes = ['700', '500', '300']
-    comparisonDataLabel = ['TTL 1024 MB', 'LB 1024 MB', 'FUSION 1024 MB']
+    comparisonDataResponseTimes = ['788', '765', '751']
+    comparisonDataLabel = ['TTL 20 G', 'LB 20 G', 'FUSION 20 G']
+    comparisonDelayTime = 897
+
   } else if (url === "https://jsonplaceholder.typicode.com/todos") {
 
-    comparisonDataResponseTimes = ['300', '200', '100']
-    comparisonDataLabel = ['TTL 2048 MB', 'LB 2048 MB', 'FUSION 2048 MB']
+    comparisonDataResponseTimes = ['968', '957', '948']
+    comparisonDataLabel = ['TTL 30 G', 'LB 30 G', 'FUSION 30 G']
+    comparisonDelayTime = 1015
+
   } 
 
   
@@ -188,19 +195,11 @@ console.log(averageResponseTimePieData)
       />
       <button onClick={handleFetch} className='button'>Fetch Data</button>
       <br />
-      {/* <p>Original Delay Time : {responseTimes}</p> */}
+      <p>Original Delay Time : {comparisonDelayTime}</p>
       {makeApiRequest} 
-
-      {/* <p className='mainText'>Original Delay Time : {responseTimes.slice(-1)} ms </p> */}
-
+      
       {responseTimes.length > 0 && <Bar data={comparisonData} options={options} />}
 
-      
-
-      {/* <h1>API Metrics</h1>
-      <p>Success Rate: {successRate.toFixed(2)}%</p>
-      <p>Average Time: {averageTime.toFixed(2)}ms</p>
-      <button onClick={makeApiRequest}>Make API Request</button> */}
     </div>
   );
 };
